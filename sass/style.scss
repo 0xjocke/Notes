@@ -1,0 +1,206 @@
+@import "compass/reset";
+@import "_settings.scss";
+@import "_layout.scss";
+@import "mixins.scss";
+
+@import url(http://fonts.googleapis.com/css?family=Gloria+Hallelujah);
+
+body{
+	background: $mainbg;
+	font-family: $light;
+
+}
+h1{
+	color: $invert;
+	font-size: 5rem;
+	font-family: $bebas;
+	text-align: center;
+	margin-top: 3rem;
+	text-shadow: 0rem 0.2rem darken($mainbg, 20%);
+	}
+h2{
+	color: $invert;
+	font-family: $bebas;
+	font-size: 2rem;
+	padding: 0.75rem 1rem;
+}
+
+a{
+	color: lighten($invert, 15%);
+	font-weight: 600;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.logout{
+	position: absolute;
+	top: 1rem;
+	right: 2rem;
+	font-size: 1.5rem;
+	@media (max-width: 600px) {
+		font-size: 1rem;
+		
+	}
+}
+
+nav{
+	@include boxWidthShadow();
+	box-shadow: 0px 4px 1px darken($mainbg, 50%);
+	margin-top: 1rem;
+	ul{
+		list-style: none;
+		li{
+			cursor: pointer;
+			margin: 1rem;
+			display: inline-block;
+		}
+	}
+}
+.main{
+	a{
+		margin:1rem;
+	}
+}
+.note{
+	position: relative;
+	background: #dedede;
+	min-height: 15rem;
+	box-sizing: border-box;
+	border: 0.5rem darken($mainbg, 20%) solid;
+	box-shadow: 0px 4px 1px darken($mainbg, 50%);
+	margin: 1rem 0;
+	
+	.noteContent{
+		padding: 0 1rem 1rem 1rem;
+		margin-bottom: 3rem;
+	}
+	a{
+		position: absolute;
+		bottom: 0;
+	}
+	.edit{
+		left: 5rem;
+	}
+	.timestamp{
+		padding: 0 1rem 1rem 1rem;
+		font-style: italic;
+		font-size: 0.75rem;
+	}
+}
+.recent{
+	position: relative;
+	@include boxWidthShadow(15rem);
+	margin: 1rem 0;
+	li{
+		padding: 0.25rem 1rem;
+	}
+	a{
+		margin-left: 0.25rem;
+	}
+	img{
+		margin-top: 0.1rem;
+		width: 1rem;
+	}
+}
+
+label{
+	font-size: 1.5rem;
+}
+
+.feedback-input {
+	font-size: 18px;
+	line-height: 22px;
+	background-color: #fbfbfb;
+	margin-bottom: 10px;
+	width:100%;
+	outline: none;
+	background: url(/images/paper.png) repeat-y;
+  	padding: 3px 10px;
+  	&:focus{
+  	outline: none;
+  }
+}
+.noteText{
+	display: block;
+	padding:25px 25px 40px;
+	width:250px;
+	height:150px;   
+	font:20px 'Gloria Hallelujah', cursive; 
+	line-height:1.5;
+	border:0;
+	border-radius:3px;
+	background: -webkit-linear-gradient(#F9EFAF, #F7E98D);
+	background: -moz-linear-gradient(#F9EFAF, #F7E98D);
+	background: -o-linear-gradient(#F9EFAF, #F7E98D);
+	background: -ms-linear-gradient(#F9EFAF, #F7E98D);
+	background: linear-gradient(#F9EFAF, #F7E98D);
+	box-shadow:0 4px 6px rgba(0,0,0,0.1);
+	overflow:hidden;
+	transition:box-shadow 0.5s ease;
+	font-smoothing:subpixel-antialiased;
+	min-width:370px;
+	&:hover { box-shadow:0 5px 8px rgba(0,0,0,0.15); }
+	&:focus { box-shadow:0 5px 12px rgba(0,0,0,0.2); outline:none; }
+}
+
+.noteTitle{
+	margin: 0;
+	font:20px 'Gloria Hallelujah', cursive; 
+	line-height:1.5;
+	border:0;
+	border-radius:3px;
+	background: -webkit-linear-gradient(#F9EFAF, #F7E98D);
+	background: -moz-linear-gradient(#F9EFAF, #F7E98D);
+	background: -o-linear-gradient(#F9EFAF, #F7E98D);
+	background: -ms-linear-gradient(#F9EFAF, #F7E98D);
+	background: linear-gradient(#F9EFAF, #F7E98D);
+	box-shadow:0 4px 6px rgba(0,0,0,0.1);
+	overflow:hidden;
+	transition:box-shadow 0.5s ease;
+}
+.login {
+	opacity:0.9;
+	color:#0493bd;
+	font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  	font-weight:400;
+	font-size: 18px;
+	line-height: 22px;
+	resize: none;
+	background-color: #fbfbfb;
+	padding: 13px 13px 13px 54px;
+	margin-bottom: 10px;
+	width:100%;
+	@include box-sizing(border-box); 
+}
+
+.login:focus{
+	background: #fff;
+	box-shadow: 0;
+	border: 2px solid #3498db;
+	color: #3498db;
+	outline: none;
+  	padding: 13px 13px 13px 54px;
+}
+
+#user, #user:focus{
+	@include icon(url(../images/user.svg));
+}
+
+#keypass, #keypass:focus{
+	@include icon(url(../images/password.svg));
+}
+
+
+.all{
+	@include boxWidthShadow(15rem);
+	margin: 1rem 0;
+	li{
+		padding: 0.25rem 1rem;
+		cursor: pointer;
+	}
+}
+
+.italic{
+	font-style: italic;	
+	font-weight: 400;
+}

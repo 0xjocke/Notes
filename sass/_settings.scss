@@ -1,0 +1,23 @@
+/*Color*/
+
+$mainbg: #d2d0bf;
+$invert: invert($mainbg);
+
+
+/*Fonts*/
+
+@font-face{
+font-family: ultralight;
+src: url('../fonts/helvetica_neue_ultralight.ttf');
+}
+
+@font-face{
+font-family: bebas;
+src: url('../fonts/bebas.otf');
+}
+
+$bebas: "bebas", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+
+$ultralight: "ultralight", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+
+$light: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight","HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 

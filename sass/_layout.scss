@@ -1,0 +1,47 @@
+@import "susy";
+   
+   $total-columns: 12;
+   $column-width: 4em;
+   $gutter-width: 1em;
+   $grid-padding: $gutter-width;
+   $border-box-sizing: true;
+
+.container{
+   	@include container;
+}
+
+.span12{
+	@include span-columns(12, 12);
+}
+
+.note{
+	@include span-columns(9, 12);
+   @media (max-width: 600px) {
+         @include span-columns(12, 12); 
+   }
+
+}
+
+.recent{
+	@include span-columns(3 omega, 12);
+   @media (max-width: 600px) {
+         @include span-columns(12, 12); 
+   }
+
+}
+
+.formRow{
+	@include span-columns(5 omega, 12);
+	@include suffix(3.5, 12);
+   @media (max-width: 600px) {
+      @include span-columns(7 omega, 12);
+      @include suffix(2.5, 12);
+
+      
+   }
+
+}
+
+.center{
+   text-align: center;
+}
