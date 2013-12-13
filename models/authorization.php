@@ -10,7 +10,7 @@ class Authorization extends BaseModel
     $user = User::findUser($userName);
     $password = hash("sha256", $password.$user['userName']);
     if ($userName == $user['userName'] && $password == $user['pwd']) {
-        $_SESSION['is_authenticated'] = true;
+        $_SESSION['is_authenticated'] = $user['id'];
     }
     return self::check();
   }
@@ -18,7 +18,7 @@ class Authorization extends BaseModel
 // returns true if session is set and equal to 'is_authenticated'
   public static function check() {
   
-    return (isset($_SESSION['is_authenticated']) && $_SESSION['is_authenticated']);
+    return (isset($_SESSION['is_authenticated']));
   }
 
 //unset the session and direct to login page

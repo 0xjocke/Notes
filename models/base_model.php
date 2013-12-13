@@ -35,7 +35,7 @@ class BaseModel
     // Get the constant table_name
     $table = $class::TABLE_NAME;
     // Prepares a mysql connection, select all from the table name of the calss it being called from.
-    $statement = self::$dbh->prepare("SELECT * FROM $table ORDER BY ID DESC");
+    $statement = self::$dbh->prepare("SELECT * FROM $table where userID = " .$_SESSION['is_authenticated']. " ORDER BY ID DESC");
     // execute it
     $statement->execute();
 
@@ -50,7 +50,7 @@ class BaseModel
     $table = $class::TABLE_NAME;
     // prepares, select the from table_name where id is the parameter nnumber.
     // in prepare I use :id to stop Ross from injections
-    $statement = self::$dbh->prepare("SELECT * FROM $table WHERE id=:id LIMIT 1");
+    $statement = self::$dbh->prepare("SELECT * FROM $table WHERE id=:id and userID = " .$_SESSION['is_authenticated']. " LIMIT 1");
     // set fetch mode so we get objects
     $statement->setFetchMode(PDO::FETCH_CLASS, $class);
     //execute and set the id to the "real" id
@@ -64,7 +64,7 @@ class BaseModel
     $table = $class::TABLE_NAME;
     // prepares, select the from table_name where id is the parameter nnumber.
     // in prepare I use :id to stop Ross from injections
-    $statement = self::$dbh->prepare("SELECT * FROM $table ORDER BY ID DESC LIMIT 1");
+    $statement = self::$dbh->prepare("SELECT * FROM $table where userID = " .$_SESSION['is_authenticated']. " ORDER BY ID DESC LIMIT 1");
     // set fetch mode so we get objects
     $statement->setFetchMode(PDO::FETCH_CLASS, $class);
     //execute and set the id to the "real" id

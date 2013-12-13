@@ -7,11 +7,17 @@ class User extends BaseModel
 	// connect to db and finds userName
 	// fetch that row.
 	public static function findUser($userName){
+		$statement = self::$dbh->prepare("SELECT * FROM " .self::TABLE_NAME. " WHERE userName = :userName");
+		$statement->execute(array('userName' => $userName));
+		$rs =  $statement->fetch();
+		return $rs;
+	}
+	public static function findUserWithId($id){
+		$statement = self::$dbh->prepare("SELECT * FROM " .self::TABLE_NAME. " WHERE id = :id");
+		$statement->execute(array('id' => $id));
+		$rs =  $statement->fetch();
+		return $rs;
 
-	$statement = self::$dbh->prepare("SELECT * FROM " .self::TABLE_NAME. " WHERE userName = :userName");
-	$statement->execute(array('userName' => $userName));
-	$rs =  $statement->fetch();
-	return $rs;
 	}
 }
 

@@ -7,9 +7,9 @@ class Notes extends BaseModel
 
 	public function add(){
 		$statement = self::$dbh->prepare(
-			"INSERT INTO ".self::TABLE_NAME." (title, content) VALUES (:title, :content)");
+			"INSERT INTO ".self::TABLE_NAME." (title, content, userID) VALUES (:title, :content, :userID)");
 
-		$statement->execute(array('title' => $this->title, 'content' => $this->content));
+		$statement->execute(array('title' => $this->title, 'content' => $this->content, 'userID' => $_SESSION['is_authenticated']));
 
 		$this->id = self::$dbh->lastInsertId();
   	}
