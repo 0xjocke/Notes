@@ -2,21 +2,25 @@
 @import "_settings.scss";
 @import "_layout.scss";
 @import "mixins.scss";
+@import "_button.scss";
 
 @import url(http://fonts.googleapis.com/css?family=Gloria+Hallelujah);
 
 body{
-	background: $mainbg;
+	
 	font-family: $light;
-
+	background: url(/images/note.jpg) fixed;
+	background-size: cover;
 }
 h1{
-	color: $invert;
+	color: #DFD5BF;
 	font-size: 5rem;
 	font-family: $bebas;
 	text-align: center;
-	margin-top: 3rem;
-	text-shadow: 0rem 0.2rem darken($mainbg, 20%);
+	text-shadow: $longshadow;
+    letter-spacing: 0.2rem;
+    margin-bottom: 1rem;
+
 	}
 h2{
 	color: $invert;
@@ -31,30 +35,44 @@ a{
 	text-decoration: none;
 	cursor: pointer;
 }
-
-.logout{
+.sign{
+	margin-top: 10rem;
+}
+.topLeft, .topRight{
 	position: absolute;
 	top: 1rem;
-	right: 2rem;
 	font-size: 1.5rem;
 	@media (max-width: 600px) {
 		font-size: 1rem;
 		
 	}
 }
+.topLeft{
+	right: 2rem;
+}
+.topRight{
+	padding: 1rem;
+	left: 2rem;
+}
 
 nav{
-	@include boxWidthShadow();
-	box-shadow: 0px 4px 1px darken($mainbg, 50%);
-	margin-top: 1rem;
+	// @include boxWidthShadow();
+	padding: 0.5rem;
 	ul{
+		text-align: center;
 		list-style: none;
 		li{
 			cursor: pointer;
-			margin: 1rem;
+			margin: 0.5rem;
 			display: inline-block;
 		}
 	}
+}
+.box{
+	@include boxWidthShadow();
+	padding-bottom: 1rem;
+	margin-top: 1rem;
+
 }
 .main{
 	a{
@@ -66,9 +84,10 @@ nav{
 	background: #dedede;
 	min-height: 15rem;
 	box-sizing: border-box;
-	border: 0.5rem darken($mainbg, 20%) solid;
+	border: 0.5rem $mainbg solid;
 	box-shadow: 0px 4px 1px darken($mainbg, 50%);
 	margin: 1rem 0;
+	border-radius: 0.5rem;
 	
 	.noteContent{
 		padding: 0 1rem 1rem 1rem;
@@ -92,7 +111,7 @@ nav{
 	@include boxWidthShadow(15rem);
 	margin: 1rem 0;
 	li{
-		padding: 0.25rem 1rem;
+		padding: 0 1rem 1rem 1rem;
 	}
 	a{
 		margin-left: 0.25rem;
@@ -114,93 +133,72 @@ label{
 	margin-bottom: 10px;
 	width:100%;
 	outline: none;
-	background: url(/images/paper.png) repeat-y;
   	padding: 3px 10px;
   	&:focus{
   	outline: none;
   }
 }
-.noteText{
-	display: block;
-	padding:25px 25px 40px;
-	width:250px;
-	height:150px;   
-	font:20px 'Gloria Hallelujah', cursive; 
-	line-height:1.5;
-	border:0;
-	border-radius:3px;
-	background: -webkit-linear-gradient(#F9EFAF, #F7E98D);
-	background: -moz-linear-gradient(#F9EFAF, #F7E98D);
-	background: -o-linear-gradient(#F9EFAF, #F7E98D);
-	background: -ms-linear-gradient(#F9EFAF, #F7E98D);
-	background: linear-gradient(#F9EFAF, #F7E98D);
-	box-shadow:0 4px 6px rgba(0,0,0,0.1);
-	overflow:hidden;
-	transition:box-shadow 0.5s ease;
-	font-smoothing:subpixel-antialiased;
-	min-width:370px;
-	&:hover { box-shadow:0 5px 8px rgba(0,0,0,0.15); }
-	&:focus { box-shadow:0 5px 12px rgba(0,0,0,0.2); outline:none; }
-}
-
-.noteTitle{
-	margin: 0;
-	font:20px 'Gloria Hallelujah', cursive; 
-	line-height:1.5;
-	border:0;
-	border-radius:3px;
-	background: -webkit-linear-gradient(#F9EFAF, #F7E98D);
-	background: -moz-linear-gradient(#F9EFAF, #F7E98D);
-	background: -o-linear-gradient(#F9EFAF, #F7E98D);
-	background: -ms-linear-gradient(#F9EFAF, #F7E98D);
-	background: linear-gradient(#F9EFAF, #F7E98D);
-	box-shadow:0 4px 6px rgba(0,0,0,0.1);
-	overflow:hidden;
-	transition:box-shadow 0.5s ease;
-}
-.login {
+.login, .signup{
 	opacity:0.9;
-	color:#0493bd;
+	color:black;
 	font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   	font-weight:400;
 	font-size: 18px;
 	line-height: 22px;
 	resize: none;
-	background-color: #fbfbfb;
+	border: 2px solid darken($mainbg, 10%);
+	background-color: #DFD5BF;
 	padding: 13px 13px 13px 54px;
 	margin-bottom: 10px;
 	width:100%;
 	@include box-sizing(border-box); 
 }
 
-.login:focus{
-	background: #fff;
+.login:focus, .signup:focus{
 	box-shadow: 0;
-	border: 2px solid #3498db;
-	color: #3498db;
+	border: 2px solid darken($mainbg, 50%);
 	outline: none;
   	padding: 13px 13px 13px 54px;
 }
 
 #user, #user:focus{
-	@include icon(url(../images/user.svg));
+	@include icon(url(../images/man.png));
 }
 
 #keypass, #keypass:focus{
-	@include icon(url(../images/password.svg));
+	@include icon(url(../images/password.png));
+}
+#email, #email:focus{
+	@include icon(url(../images/mail.svg));
+}
+#code, #code:focus{
+	@include icon(url(../images/code.png));
 }
 
+.smaller{
+	font-size: 1rem;
+}
 
-.all{
+.error{
+	margin: 1rem auto;
+	text-align: center;
+	width:50%;
+	padding: 1em;
+	border-radius: 10px;
+	color: lighten(red, 35%);
+	background: darken(red, 15%);
+}
+
+.allBox{
 	@include boxWidthShadow(15rem);
-	margin: 1rem 0;
+	margin: 1rem auto;
 	li{
 		padding: 0.25rem 1rem;
 		cursor: pointer;
 	}
 }
+.removeBox{
+	@include boxWidthShadow(10rem);
+	margin: 1rem auto;
 
-.italic{
-	font-style: italic;	
-	font-weight: 400;
 }
