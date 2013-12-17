@@ -22,7 +22,7 @@
 			<textarea class="feedback-input noPadding" id="content" name="content" rows="8"><?php echo $note->content; ?></textarea>	
 		</div>
 		<div class="formRow">
-			<input type="submit" class="editBtn smallBtn">	
+			<input type="submit" class="editBtn smallBtn" value="Edit">	
 		</div>
 	</form>
 

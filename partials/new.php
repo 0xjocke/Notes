@@ -20,7 +20,7 @@
 			<textarea class="feedback-input" id="content" name="content" placeholder="Content" rows="5"></textarea>	
 		</div>
 		<div class="formRow">
-			<input type="submit" class="addBtn smallBtn">	
+			<input type="submit" class="addBtn smallBtn" value="Add">	
 		</div>
 	</form>
 
