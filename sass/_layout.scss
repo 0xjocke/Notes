@@ -1,17 +1,23 @@
 @import "susy";
    
    $total-columns: 12;
-   $column-width: 4em;
+   $column-width: 3em;
    $gutter-width: 1em;
    $grid-padding: $gutter-width;
    $border-box-sizing: true;
 
 .container{
    	@include container;
+      // @include susy-grid-background;
 }
 
 .span12{
-	@include span-columns(12, 12);
+    // @include susy-grid-background;
+    width: columns(5); 
+   margin: 10rem auto 0 auto;
+   @media (max-width: 600px) {
+      width: columns(12);
+   }
 }
 
 .note{
