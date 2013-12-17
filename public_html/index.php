@@ -7,12 +7,11 @@
 
 <?php require ROOT_PATH . '/partials/header.php'; ?>
 	<body>
-		<div class="logout">
-			<a href="logout.php">Logout,</a>
-			<p><?php echo $user['userName']; ?></p>
+		<div class="topLeft">
+			<a class="smallBtn" href="logout.php">Logout</a>
 		</div>
 		<div class="container">
-			<h1>Notes</h1>
+			
 			<?php require ROOT_PATH . '/partials/nav.php'; ?>
 		</div>
 			<div class="container main">
@@ -21,3 +20,4 @@
 		<script src="js/script-ck.js"></script>
 	</body>
 </html>
+
