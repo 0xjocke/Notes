@@ -1,7 +1,7 @@
 /*global console:true*/
 // @codekit-append functions.js
 // @codekit-append index.js
-// @codekit-append allPHP.js
+// @codekit-append all.js
 // @codekit-append new.js
 // @codekit-append remove.js
 // @codekit-append edit.js
