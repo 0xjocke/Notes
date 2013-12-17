@@ -3,6 +3,7 @@ $(document).on('click', '.indexSpecificNote', function(event) {
    event.preventDefault();
    // send the url plus category id with get
    var noteId = $(this).attr('data-id');
+
    $.ajax({
          type: 'GET',
          url: '/note.php',
@@ -19,6 +20,8 @@ $(document).on('click', '.remove', function(event) {
    event.preventDefault();
    // save attrbute to noteId
    var noteId = $(this).attr('data-id');
+   var link = $(this);
+   link.addClass('loading');
    // go to remove page
    $.ajax({
          type: 'GET',
@@ -28,6 +31,7 @@ $(document).on('click', '.remove', function(event) {
             // when done, replace portfolio section with the 
    .done(function(html) {
          $('.main').replaceWith(html);
+         link.removeClass('loading');
    });
    // send the url plus category id with get
    $.ajax({
@@ -45,6 +49,8 @@ $(document).on('click', '.edit', function(event) {
    event.preventDefault();
    // save attrbute to noteId
    var noteId = $(this).attr('data-id');
+   var link = $(this);
+   link.addClass('loading');
    // go to remove page
    $.ajax({
          type: 'GET',
@@ -54,6 +60,7 @@ $(document).on('click', '.edit', function(event) {
             // when done, replace portfolio section with the 
    .done(function(html) {
          $('.main').replaceWith(html);
+         link.removeClass('loading');
    });
    // send the url plus category id with get
    $.ajax({

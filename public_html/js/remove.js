@@ -1,9 +1,12 @@
 /*global console:true*/
+/*global goToHome:true*/
 $(document).on('click', '.reallyDelete', function(event) {
    event.preventDefault();
    // save attrbute to noteId
    var noteId = $(this).attr('data-id');
    // send the url plus category id with get
+   var link = $(this);
+    link.addClass('loading');
    $.ajax({
          type: 'POST',
          url: '/remove.php',
@@ -12,6 +15,7 @@ $(document).on('click', '.reallyDelete', function(event) {
             // when done, replace portfolio section with the 
       .done(function(html) {
          $('.main').replaceWith(html);
+         link.removeClass('loading');
       })
       .fail(function() {
          console.log("error");
@@ -19,25 +23,14 @@ $(document).on('click', '.reallyDelete', function(event) {
       .always(function() {
          console.log("complete");
       });
-     $.ajax({
-         type: 'GET',
-         url: '/mainContainer.php',
-         data: {'pageId': 'home.php'}
-            })
-            // when done, replace portfolio section with the 
-   .done(function(html) {
-         $('.main').replaceWith(html);
-   })
-   .fail(function() {
-      console.log("error");
-   })
-   .always(function() {
-      console.log("complete");
-   });
+   goToHome();
 });
 
 $(document).on('click', '.cancel', function(event) {
    event.preventDefault();
+   var link = $(this);
+   link.addClass('loading');
+   
    $.ajax({
       type: 'GET',
       url: '/mainContainer.php',
@@ -46,6 +39,7 @@ $(document).on('click', '.cancel', function(event) {
     // when done, go to home
    .done(function(html) {
          $('.main').replaceWith(html);
+         link.removeClass('loading');
    })
    .fail(function() {
       console.log("error");

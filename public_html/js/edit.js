@@ -1,3 +1,4 @@
+/*global goToHome:true*/
 $(document).on('click', '.editBtn', function(event) {
 	event.preventDefault();
 	// save attrbute to noteId
@@ -5,6 +6,8 @@ $(document).on('click', '.editBtn', function(event) {
 	var id = note[0].value;
 	var title = note[1].value;
 	var content = note[2].value;
+  var link = $(this);
+   link.addClass('loading');
 	$.ajax({
          type: 'POST',
          url: '/edit.php',
@@ -13,15 +16,8 @@ $(document).on('click', '.editBtn', function(event) {
        })
       .done(function(html) {
          $('.main').replaceWith(html);
+         link.removeClass('loading');
       });
 
-    $.ajax({
-         type: 'GET',
-         url: '/mainContainer.php',
-         data: {'pageId': 'home.php'}
-            })
-            // when done, replace portfolio section with the 
-   .done(function(html) {
-         $('.main').replaceWith(html);
-   });
+  goToHome();
 });
