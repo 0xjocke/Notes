@@ -1,5 +1,6 @@
 <?php 
 	require_once '../application.php';
+	Authorization::checkOrRedirect();
 	$note = Notes::find($_GET['noteId']);
 	if (isset($_POST['content']) && $_POST['content'] !== "") {
 		$note = Notes::find($_POST['id']);
@@ -8,7 +9,7 @@
 	}
 ?>
 
-<div class="container main">
+<div class="container main box">
 	<h2 class="center">Edit note</h2>
 	<form class="editForm">
 		<input type="hidden" id="id" name="id" value="<?php echo $note->id; ?>">
@@ -21,7 +22,7 @@
 			<textarea class="feedback-input noPadding" id="content" name="content" rows="8"><?php echo $note->content; ?></textarea>	
 		</div>
 		<div class="formRow">
-			<input type="submit" class="editBtn">	
+			<input type="submit" class="editBtn smallBtn">	
 		</div>
 	</form>
 

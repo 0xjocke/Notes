@@ -14,7 +14,7 @@ require_once '../application.php';
 		<p class="timestamp"><?php echo $note->timestamp; ?></p>
 		<article class="content">
 			<p class="noteContent"> <?php echo $note->content; ?>.</p>
-			<a class="remove" data-id="<?php echo $note->id ?>">Remove</a>
-			<a class="edit" data-id="<?php echo $note->id; ?>">Edit</a>
+			<a class="remove smallBtn" data-id="<?php echo $note->id ?>">Remove</a>
+			<a class="edit smallBtn" data-id="<?php echo $note->id; ?>">Edit</a>
 		</article>
 	</div>
