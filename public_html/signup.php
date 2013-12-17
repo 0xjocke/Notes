@@ -50,7 +50,7 @@ if (isset($_POST['user'])) {
 			} ?>" required>
 		</div>
 		<div class="formRow">
-			<input type="submit" class="button">	
+			<input type="submit" class="button" value="Signup">	
 		</div>
 	</form>
 </div>
