@@ -29,13 +29,13 @@ class BaseModel
     }
   }
 
-  public static function all() {
+  public static function all($limit = null) {
     // Gets the name of the class its being called from
     $class = get_called_class();
     // Get the constant table_name
     $table = $class::TABLE_NAME;
     // Prepares a mysql connection, select all from the table name of the calss it being called from.
-    $statement = self::$dbh->prepare("SELECT * FROM $table where userID = " .$_SESSION['is_authenticated']. " ORDER BY ID DESC");
+    $statement = self::$dbh->prepare("SELECT * FROM $table where userID = " .$_SESSION['is_authenticated']. " ORDER BY ID DESC " . $limit);
     // execute it
     $statement->execute();
 
