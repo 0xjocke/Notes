@@ -1,5 +1,6 @@
 <?php 
-	$notes = Notes::all();
+	$limit = "LIMIT 5";
+	$notes = Notes::all($limit);
  ?>
 	<div class="recent">
 		<h2>Recent notes</h2>
