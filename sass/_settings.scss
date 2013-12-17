@@ -1,7 +1,24 @@
+@import "compass";
 /*Color*/
 
 $mainbg: #d2d0bf;
 $invert: invert($mainbg);
+
+$longshadow:
+	$invert 1px 1px,
+    $invert 2px 2px,
+    $invert 3px 3px,
+    lighten($invert, 1%) 4px 4px,
+    lighten($invert, 2%) 5px 5px,
+    lighten($invert, 3%) 6px 6px,
+    lighten($invert, 4%) 7px 7px,
+    lighten($invert, 5%) 8px 8px,
+    lighten($invert, 6%) 9px  9px,
+    lighten($invert, 7%) 10px 10px,
+    lighten($invert, 8%) 11px 11px,
+    lighten($invert, 9%) 12px 12px,
+	lighten($invert, 10%) 13px 13px;
+
 
 
 /*Fonts*/
@@ -21,3 +38,7 @@ $bebas: "bebas", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue"
 $ultralight: "ultralight", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 
 $light: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight","HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+
+.hidden{
+	display: none;
+}
