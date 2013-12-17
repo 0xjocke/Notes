@@ -1,7 +1,6 @@
 <?php 
 require_once '../application.php';
 
-// define userName
 $errorMessage = '';
 
 //if POST userName and password is set
@@ -23,7 +22,10 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
 ?>
 <?php require ROOT_PATH . '/partials/header.php'; ?>
    <body>
-	  <div class="container">
+   	<div class="topLeft">
+			<a href="/signup.php" class="smallBtn">Sign Up</a>
+	</div>
+	  <div class="container sign">
 	  	<h1>Login</h1>
 		<form action="" method="post" class="form">
 			<?php 
@@ -39,9 +41,12 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
 				<input placeholder="Password" type="password" name="password" id="keypass" class="login" required><br>
 			</div>	
 			<div class="formRow">
-				<input type="submit" id="submit" value="Login" />
+				<input type="submit" id="submit" value="Login" class="button">
+
 		 	</div>
+
 		 </form>
 	  </div>
+	  <script src="js/script-ck.js"></script>
    </body>
 </html>
