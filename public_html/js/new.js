@@ -16,6 +16,6 @@ $(document).on('click', '.addBtn', function(event) {
   .done(function(html){
     $('.main').replaceWith(html);
     link.removeClass('loading');
+    goToHome();
   });
-  goToHome();
 });
