@@ -1,7 +1,9 @@
 <?php 
 	require_once '../application.php';
 	Authorization::checkOrRedirect();
-	$note = Notes::find($_GET['noteId']);
+	if (isset($_GET['noteId'])){
+		$note = Notes::find($_GET['noteId']);
+	}
 	if (isset($_POST['content']) && $_POST['content'] !== "") {
 		$note = Notes::find($_POST['id']);
 	  	$note->attributes($_POST);
