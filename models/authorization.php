@@ -7,8 +7,9 @@ class Authorization extends BaseModel
   // Hash the pwd and adds the email as a salt, making it unique
   // Is DB match set $_Session to true and return method check
   public static function authenticate($userName, $password) {
+    $userName = strtolower($userName);
     $user = User::findUser($userName);
-    $password = hash("sha256", $password.$user['userName']);
+    $password = hash("sha256", $password.$userName);
     if ($userName == $user['userName'] && $password == $user['pwd']) {
         $_SESSION['is_authenticated'] = $user['id'];
     }
