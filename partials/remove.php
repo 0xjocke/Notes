@@ -1,13 +1,17 @@
 <?php 
 require_once '../application.php';
 Authorization::checkOrRedirect();
-
-
-	$note = Notes::find($_GET['noteId']);
-	if ($_POST['reallyDelete'] == 'yes') {
-		$note = Notes::find($_POST['noteId']);
-		$note->remove();
+	if (isset($_GET['noteId'])){
+		$note = Notes::find($_GET['noteId']);
 	}
+	if (isset($_POST['noteId'])){
+		$note = Notes::find($_POST['noteId']);
+		if ($_POST['reallyDelete'] == 'yes') {
+			$note = Notes::find($_POST['noteId']);
+			$note->remove();
+		}
+	}
+
  ?>
  <div class="container main">
 	<div class="span12 removeBox">
