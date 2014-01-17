@@ -7,7 +7,7 @@
 
 <?php require ROOT_PATH . '/partials/header.php'; ?>
 	<body>
-		<div class="topLeft">
+		<div class="topRight">
 			<a class="smallBtn" href="logout.php">Logout</a>
 		</div>
 		<div class="container">
