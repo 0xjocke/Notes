@@ -24,8 +24,10 @@ class User extends BaseModel
 	public static function validateSignup(array $user){
 		$errorMsg = null;
 		$username = filter_var($user['username'], FILTER_SANITIZE_STRING);
+		$username = strtolower($username);
 		$email = filter_var($user['email'], FILTER_SANITIZE_EMAIL);
 		$pwd = $user['password'];
+		$pwd1 = $user['password1'];
 		$code = $user['code'];
 		$userInDb = self::findUser($username);
 		if ($username != "" && $userInDb  == false){
@@ -42,6 +44,9 @@ class User extends BaseModel
 		if(!$uppercase || !$lowercase || !$number || strlen($pwd) < 8) {
 		    $errorMsg .= "<p class='error'>Password is too weak</p>";
 		}
+		if ($pwd != $pwd1) {
+			$errorMsg .= "<p class='error'>Your passwords didnt match</p>";
+		}
 		if ($code != 'jocke') {
 			$errorMsg .= "<p class='error'>Your code is bad, please request a new from admin</p>";
 		}
@@ -54,11 +59,13 @@ class User extends BaseModel
 	}
 
 	public function addUser(){
-		$password = hash("sha256", $this->password.$this->username);
+		$username = $this->username;
+		$username = strtolower($username);
+		$password = hash("sha256", $this->password.$username);
 		$statement = self::$dbh->prepare(
 			"INSERT INTO ".self::TABLE_NAME." (userName, email, pwd) VALUES (:userName, :email, :pwd)");
 
-		$statement->execute(array('userName' => $this->username, 'email' => $this->email, 'pwd' => $password));
+		$statement->execute(array('userName' => $username, 'email' => $this->email, 'pwd' => $password));
 
 		$this->id = self::$dbh->lastInsertId();
   	
