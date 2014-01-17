@@ -1,8 +1,9 @@
 <?php 
 	require_once '../application.php';
-	$page = $_GET['pageId'];
-	$note = $_GET['noteId'];
-	echo $note;
+		$page = null;
+	if (isset($_GET['pageId'])) {
+		$page = $_GET['pageId'];
+	}
 	switch ($page) {
 
 		case 'home.php':
