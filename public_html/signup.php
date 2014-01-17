@@ -1,15 +1,17 @@
 <?php 
 require_once '../application.php';
- require ROOT_PATH . '/partials/header.php';
+ $errorMsg = null;
 if (isset($_POST['user'])) {
 	$errorMsg =  User::validateSignup($_POST['user']);
 	if (!is_string($errorMsg)) {
 		$user = new User($_POST['user']);
 		$user->addUser();
-
+		header('Location: /login.php?success');
+		exit;
 	}
 }
 
+ require ROOT_PATH . '/partials/header.php';
 
 ?>
 
@@ -44,13 +46,19 @@ if (isset($_POST['user'])) {
 			} ?>" required>
 		</div>
 		<div class="formRow">
+			<label class="hidden" for="password">Repeat Password</label>
+			<input type="password" class="feedback-input signup" id="keypass" name="user[password1]" placeholder="Repeat Password" value="<?php if (isset($_POST['user'])) {
+			echo $_POST['user']['password1'];
+			} ?>" required>
+		</div>
+		<div class="formRow">
 			<label class="hidden" for="code">Signup Code</label>
 			<input type="password" class="feedback-input signup" id="code" name="user[code]" placeholder="Signup Code" value="<?php if (isset($_POST['user'])) {
 			echo $_POST['user']['code'];
 			} ?>" required>
 		</div>
 		<div class="formRow">
-			<input type="submit" class="button" value="Signup">	
+			<input type="submit" class="buttonPHP" value="Signup">	
 		</div>
 	</form>
 </div>
