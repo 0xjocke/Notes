@@ -7,9 +7,10 @@ $errorMessage = '';
 if (isset($_POST['userName']) && isset($_POST['password'])) {
 	// save username in userName variable
 	$userName = $_POST['userName'];
+	$userName = strtolower($userName);
 	// if note check with db ok echo wrong
 	// else send to index
-	if (!Authorization::authenticate($_POST['userName'], $_POST['password'])) {
+	if (!Authorization::authenticate($userName, $_POST['password'])) {
 		$errorMessage = "Wrong password or username!";
 	} else {
 		header('Location: /');
@@ -22,11 +23,14 @@ if (isset($_POST['userName']) && isset($_POST['password'])) {
 ?>
 <?php require ROOT_PATH . '/partials/header.php'; ?>
    <body>
-   	<div class="topLeft">
+   	<div class="topRight">
 			<a href="/signup.php" class="smallBtn">Sign Up</a>
 	</div>
 	  <div class="container sign">
 	  	<h1>Login</h1>
+	  	<?php if (isset($_GET['success'])) {
+	  		echo "<p class='success'> Ditt konto är skapat och du kan nu logga in</p>";
+	  	} ?>
 		<form action="" method="post" class="form">
 			<?php 
 			// if errormsg not "" echo it
