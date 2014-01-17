@@ -1,12 +1,16 @@
 
 <?php
 require_once '../application.php';
-
+	
 	if (isset($_GET['noteId']) && $_GET['noteId'] != "") {
 		$note = Notes::find($_GET['noteId']);
 	}else{
-		//Nees to fix if function for just getting one item
 		$note = Notes::findOneNote();
+		if (!$note) {
+			$note = new Notes;
+			$note->newExampleNote();
+			$note = Notes::findOneNote();
+		}
 	}
 ?>
 	<div class="note">
