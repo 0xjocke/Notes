@@ -6,12 +6,34 @@
 
 @import url(http://fonts.googleapis.com/css?family=Gloria+Hallelujah);
 
-body{
-	
-	font-family: $light;
-	background: url(/images/note.jpg) fixed;
-	background-size: cover;
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    background-image: url(/images/note.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;       
 }
+
+body{
+font-family: $light;
+}
+// html{
+//   background: url(/images/note.jpg) no-repeat center center fixed; 
+//   -webkit-background-size: cover;
+//   -moz-background-size: cover;
+//   -o-background-size: cover;
+//   background-size: cover;
+// }
+// body{
+// 	font-family: $light;
+// 	// background: url(/images/note.jpg) fixed no-repeat;
+// 	// background-size: cover;
+// 	// width: 100%;
+// 	// height: 100%;
+// }
 h1{
 	color: #DFD5BF;
 	font-size: 5rem;
@@ -38,22 +60,18 @@ a{
 .sign{
 	margin-top: 10rem;
 }
-.topLeft, .topRight{
+.topRight{
 	position: absolute;
 	top: 1rem;
 	font-size: 1.5rem;
+	right: 2rem;
 	@media (max-width: 600px) {
 		font-size: 1rem;
 		
 	}
 }
-.topLeft{
-	right: 2rem;
-}
-.topRight{
-	padding: 1rem;
-	left: 2rem;
-}
+
+
 
 nav{
 	// @include boxWidthShadow();
@@ -179,14 +197,21 @@ label{
 	font-size: 1rem;
 }
 
-.error{
-	margin: 1rem auto;
+.success, .error{
+	margin: 1rem auto 0 auto;
 	text-align: center;
 	width:50%;
 	padding: 1em;
 	border-radius: 10px;
+}
+.success{
+	color: lightgreen;
+	background: darkgreen;
+}
+.error{
 	color: lighten(red, 35%);
 	background: darken(red, 15%);
+	margin-bottom: 1rem;
 }
 
 .allBox{
